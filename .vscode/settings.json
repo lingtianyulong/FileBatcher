@@ -1,0 +1,6 @@
+{
+    "cmake.sourceDirectory": "F:/Git/FileBatcher/FileBatcher",
+    "cmake.generator": "Ninja",
+    "cmake.buildTarget": "FileBatcher",
+    "cmake.buildDirectory": "${workspaceFolder}/build/debug"
+}
