@@ -22,15 +22,56 @@ FetchContent_MakeAvailable(GSL)
 
 find_package(Qt6 REQUIRED COMPONENTS Core Widgets)
 
+# 获取 git 版本
+find_package(Git QUIET) 
+if(GIT_FOUND)
+    execute_process(
+        COMMAND ${GIT_EXECUTABLE} rev-parse --short HEAD
+        WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+        OUTPUT_VARIABLE GIT_VERSION
+        OUTPUT_STRIP_TRAILING_WHITESPACE
+    )
+else()
+    set(GIT_VERSION "unknown")
+    message(STATUS "Git not found")
+endif()
+
+string(REPLACE "\"" "\\\"" GIT_VERSION_ESCAPED "${GIT_VERSION}")
+add_compile_definitions(GIT_VERSION=\"${GIT_VERSION_ESCAPED}\")
+set(APP_VERSION_STR "1.0.${GIT_VERSION}")
+message(STATUS "Git commit hash: ${GIT_VERSION}")
+message(STATUS "App version string: ${APP_VERSION_STR}")
+
+configure_file(
+    ${CMAKE_SOURCE_DIR}/version.h.in
+    ${CMAKE_BINARY_DIR}/version.h
+    @ONLY
+)
+
+include_directories(${CMAKE_BINARY_DIR})
+
+if (WIN32)
+    set(APP_RC ${CMAKE_SOURCE_DIR}/version.rc)
+endif()
+
+
 qt_standard_project_setup()
 
 file(GLOB_RECURSE UI_SOURCES "ui/*.ui" "ui/*.h" "ui/*.cpp")
 
+if (WIN32)
 qt_add_executable(FileBatcher
     WIN32 MACOSX_BUNDLE
     main.cpp
     ${UI_SOURCES}
+    ${APP_RC}
 )
+else()
+    qt_add_executable(FileBatcher
+        main.cpp
+        ${UI_SOURCES}
+    )
+endif()
 
 target_link_libraries(FileBatcher
     PRIVATE
