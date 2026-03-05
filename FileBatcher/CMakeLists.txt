@@ -23,7 +23,7 @@ FetchContent_MakeAvailable(GSL)
 find_package(Qt6 REQUIRED COMPONENTS Core Widgets)
 
 # 获取 git 版本
-find_package(Git QUIET) 
+find_package(Git QUIET)
 if(GIT_FOUND)
     execute_process(
         COMMAND ${GIT_EXECUTABLE} rev-parse --short HEAD
@@ -62,12 +62,16 @@ add_subdirectory(controls)
 add_subdirectory(ui)
 
 if (WIN32)
+
+set(APP_ICON_RESOURCE ${CMAKE_SOURCE_DIR}/app.rc)
+
 qt_add_executable(FileBatcher
     WIN32 MACOSX_BUNDLE
     main.cpp
     resources/resource.qrc
     ${UI_SOURCES}
     ${APP_RC}
+    ${APP_ICON_RESOURCE}
 )
 else()
     qt_add_executable(FileBatcher
