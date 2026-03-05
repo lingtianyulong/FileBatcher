@@ -57,12 +57,14 @@ endif()
 
 qt_standard_project_setup()
 
+add_subdirectory(controls)
 add_subdirectory(ui)
 
 if (WIN32)
 qt_add_executable(FileBatcher
     WIN32 MACOSX_BUNDLE
     main.cpp
+    resources/resource.qrc
     ${UI_SOURCES}
     ${APP_RC}
 )
@@ -78,6 +80,7 @@ target_link_libraries(FileBatcher
         Qt::Core
         Qt::Widgets
         filebatcher-ui
+        advanced-controls
 )
 
 include(GNUInstallDirs)

@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/styles">
+        <file alias="buttons.qss">styles/button.qss</file>
+    </qresource>
+</RCC>
