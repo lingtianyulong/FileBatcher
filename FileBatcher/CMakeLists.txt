@@ -60,6 +60,7 @@ qt_standard_project_setup()
 add_subdirectory(helper)
 add_subdirectory(controls)
 add_subdirectory(thirdparty)
+add_subdirectory(logger)
 add_subdirectory(ui)
 
 if (WIN32)
@@ -89,6 +90,7 @@ target_link_libraries(FileBatcher
         filebatcher-controls
         filebatcher-helper
         filebatcher-thirdparty
+        filebatcher-logger
 )
 
 include(GNUInstallDirs)

@@ -1,6 +1,13 @@
 {
     "cmake.sourceDirectory": "F:/Git/FileBatcher/FileBatcher",
     "cmake.generator": "Ninja",
+    "cmake.preferredGenerators": [
+        "Ninja"
+    ],
+    "cmake.configureArgs": [
+        "-G",
+        "Ninja"
+    ],
     "cmake.buildTarget": "FileBatcher",
     "cmake.buildDirectory": "${workspaceFolder}/build/debug"
 }
