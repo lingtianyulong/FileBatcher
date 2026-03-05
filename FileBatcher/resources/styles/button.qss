@@ -1,10 +1,10 @@
 /* ------------------- Flat Base ------------------- */
 QPushButton[btnType] {
     border: none;
-    border-radius: 6px;
+    border-radius: 5px;
     padding: 6px 14px;
     background: transparent;
-    color: #333;
+    color: #333333;
     font-size: 14px;
 }
 
@@ -20,7 +20,7 @@ QPushButton[btnType]:pressed {
 /* ------------------- Default ------------------- */
 QPushButton[btnType="default"] {
     background: #ffffff;
-    color: #333;
+    color: #333333;
     border: 1px solid #dcdfe6;
 }
 

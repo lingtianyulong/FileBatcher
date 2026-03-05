@@ -57,6 +57,7 @@ endif()
 
 qt_standard_project_setup()
 
+add_subdirectory(helper)
 add_subdirectory(controls)
 add_subdirectory(ui)
 
@@ -80,7 +81,8 @@ target_link_libraries(FileBatcher
         Qt::Core
         Qt::Widgets
         filebatcher-ui
-        advanced-controls
+        filebatcher-controls
+        filebatcher-helper
 )
 
 include(GNUInstallDirs)

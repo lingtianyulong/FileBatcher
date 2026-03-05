@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.19)
-set(LIB_NAME advanced-controls)
+set(LIB_NAME filebatcher-controls)
 
 project(${LIB_NAME} LANGUAGES CXX)
 set(CMAKE_AUTOMOC ON)
