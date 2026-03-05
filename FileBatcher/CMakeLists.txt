@@ -24,12 +24,12 @@ find_package(Qt6 REQUIRED COMPONENTS Core Widgets)
 
 qt_standard_project_setup()
 
+file(GLOB_RECURSE UI_SOURCES "ui/*.ui" "ui/*.h" "ui/*.cpp")
+
 qt_add_executable(FileBatcher
     WIN32 MACOSX_BUNDLE
     main.cpp
-    mainwindow.cpp
-    mainwindow.h
-    mainwindow.ui
+    ${UI_SOURCES}
 )
 
 target_link_libraries(FileBatcher
