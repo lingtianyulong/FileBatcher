@@ -63,6 +63,7 @@ add_subdirectory(ui)
 
 if (WIN32)
 
+# 获取 app.rc 文件, 将 icon 资源写入 exe 中, 并设置为应用程序图标
 set(APP_ICON_RESOURCE ${CMAKE_SOURCE_DIR}/app.rc)
 
 qt_add_executable(FileBatcher
