@@ -1,0 +1,41 @@
+/* 通用进度条基础样式 */
+QProgressBar {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+    height: 20px;
+}
+
+/* 进度条颜色状态属性 */
+QProgressBar[status="normal"]::chunk {
+    background-color: #409EFF;
+}
+
+/* 成功, 绿色 */
+QProgressBar[status="success"]::chunk {
+    background-color: #67C23A;
+}
+
+/* 警告, 橙色 */
+QProgressBar[status="warning"]::chunk {
+    background-color: #E6A23C;
+}
+
+/* 错误, 红色 */
+QProgressBar[status="error"]::chunk {
+    background-color: #F56C6C;
+}
+
+/* 显示图标（可用 QLabel 叠加或 paintEvent 自绘） */
+/* 这里只设置颜色和文字，图标可用 Unicode */
+/* QProgressBar[status="success"] {
+    qproperty-format: "%p% ✔";
+}
+
+QProgressBar[status="warning"] {
+    qproperty-format: "%p% !";
+}
+
+QProgressBar[status="error"] {
+    qproperty-format: "%p% ✖";
+} */
