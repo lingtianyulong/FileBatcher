@@ -57,7 +57,7 @@ endif()
 
 qt_standard_project_setup()
 
-file(GLOB_RECURSE UI_SOURCES "ui/*.ui" "ui/*.h" "ui/*.cpp")
+add_subdirectory(ui)
 
 if (WIN32)
 qt_add_executable(FileBatcher
@@ -77,6 +77,7 @@ target_link_libraries(FileBatcher
     PRIVATE
         Qt::Core
         Qt::Widgets
+        filebatcher-ui
 )
 
 include(GNUInstallDirs)
