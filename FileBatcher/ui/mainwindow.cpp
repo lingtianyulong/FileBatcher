@@ -14,6 +14,12 @@ using namespace file_batcher::controls;
 
 MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent), ui(new Ui::MainWindow) {
     ui->setupUi(this);
+
+    this->setMinimumSize(QSize(800, 600));
+    this->resize(QSize(1280, 800));
+    this->setWindowTitle("File Batcher");
+    this->setWindowIcon(QIcon(":/icons/filebatcher.png"));
+
     DefaultButton* button = new DefaultButton("Test", this);
     PrimaryButton* primaryButton = new PrimaryButton("Test", this);
     SuccessButton* successButton = new SuccessButton("Test", this);

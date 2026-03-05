@@ -2,4 +2,7 @@
     <qresource prefix="/styles">
         <file alias="buttons.qss">styles/button.qss</file>
     </qresource>
+    <qresource prefix="/icons">
+        <file alias="/filebatcher.png">icons/filebatcher.png</file>
+    </qresource>
 </RCC>
