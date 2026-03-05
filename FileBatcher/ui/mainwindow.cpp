@@ -1,6 +1,5 @@
 #include "mainwindow.h"
 
-// #include "../controls/buttons/base_button.h"
 #include "../controls/buttons/danger_button.h"
 #include "../controls/buttons/default_button.h"
 #include "../controls/buttons/info_button.h"
@@ -11,12 +10,10 @@
 
 #include <QVBoxLayout>
 
-
 using namespace file_batcher::controls;
 
 MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent), ui(new Ui::MainWindow) {
     ui->setupUi(this);
-    // BaseButton* baseButton = new BaseButton("Test", this);
     DefaultButton* button = new DefaultButton("Test", this);
     PrimaryButton* primaryButton = new PrimaryButton("Test", this);
     SuccessButton* successButton = new SuccessButton("Test", this);

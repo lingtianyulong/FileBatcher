@@ -16,7 +16,7 @@ find_package(Qt6 REQUIRED COMPONENTS Core Widgets)
 
 qt_standard_project_setup()
 
-file(GLOB_RECURSE UI_SOURCES "*.ui" "*.h" "*.cpp")  
+file(GLOB_RECURSE UI_SOURCES CONFIGURE_DEPENDS "*.ui" "*.h" "*.cpp")  
 add_library(${LIB_NAME} STATIC ${UI_SOURCES})
 
 target_include_directories(${LIB_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/ui)
