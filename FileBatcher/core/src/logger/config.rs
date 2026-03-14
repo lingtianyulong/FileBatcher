@@ -15,6 +15,7 @@ pub struct LoggerConfig {
     pub file_name: String,
 }
 
+#[allow(dead_code)]
 impl LoggerConfig {
     pub fn new(level: String, path: String, file_name: String) -> Self {
         Self {
@@ -42,19 +43,25 @@ impl LoggerConfig {
 #[cfg(test)]
 mod tests {
     use super::LoggerConfig;
+    use std::time::{SystemTime, UNIX_EPOCH};
 
     #[test]
     fn test_load_from_file() {
         let config = LoggerConfig::new(
             String::from("info"),
             String::from("logs"),
-            String::from("app.log"),
+            String::from("core.log"),
         );
-        let path = "test_config.json";
-        LoggerConfig::save_to_file(path, &config).unwrap();
-        let loaded_config = LoggerConfig::load_from_file(path).unwrap();
+        let test_id = SystemTime::now()
+            .duration_since(UNIX_EPOCH)
+            .expect("system time should be after unix epoch")
+            .as_nanos();
+        let path = format!("test_config_load_{}.json", test_id);
+        LoggerConfig::save_to_file(&path, &config).unwrap();
+        let loaded_config = LoggerConfig::load_from_file(&path).unwrap();
         assert_eq!(loaded_config.level, "info");
         assert_eq!(loaded_config.path, "logs");
-        assert_eq!(loaded_config.file_name, "app.log");
+        assert_eq!(loaded_config.file_name, "core.log");
+        let _ = std::fs::remove_file(path);
     }
 }
