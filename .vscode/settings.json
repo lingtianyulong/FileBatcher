@@ -9,5 +9,8 @@
         "Ninja"
     ],
     "cmake.buildTarget": "FileBatcher",
-    "cmake.buildDirectory": "${workspaceFolder}/build/debug"
+    "cmake.buildDirectory": "${workspaceFolder}/build/debug",
+    "rust-analyzer.linkedProjects": [
+        "F:/Git/FileBatcher/FileBatcher/core/Cargo.toml"
+    ]
 }
